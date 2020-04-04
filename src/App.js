@@ -3,6 +3,7 @@ import './App.css';
 import UC from "./components/UC";
 import Header from "./components/Header";
 import Search from "./components/Search";
+import Employees from "./components/Employees";
 import Footer from "./components/Footer";
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       <UC />
       <Header />
       <Search />
+      <Employees />
       <Footer />
     </div>
   );
