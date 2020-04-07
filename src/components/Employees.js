@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import API from '../utils/API';
+import Employee from "./Employee";
 
 export default function Employees() {
     const [users, setUsers] = useState([]);
@@ -13,8 +14,8 @@ export default function Employees() {
     }, []); // <-- Have to pass in [] here!
 
     return (
-        <table class="table">
-            <thead class="thead-dark">
+        <table className="table">
+            <thead className="thead-dark">
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Image</th>
@@ -26,14 +27,7 @@ export default function Employees() {
             </thead>
             <tbody>
                 {users.map((user,index) => (
-                    <tr key={user.login.uuid.toString()}>
-                        <th scope="row">{index+1}</th>
-                        <td><img src={user.picture.thumbnail} alt="Smiley face" height="42" width="42"></img></td>
-                        <td>{user.name.first}</td>
-                        <td>{user.name.last}</td>
-                        <td>{user.email}</td>
-                        <td>{user.phone}</td>
-                    </tr>
+                    <Employee key={user.login.uuid.toString()} data={{"index":index,"user":user}} />
                 ))}
             </tbody>
         </table>
