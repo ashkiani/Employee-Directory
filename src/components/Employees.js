@@ -14,7 +14,11 @@ export default function Employees() {
                 let lowerFirst = user.name.first.toLowerCase();
                 let lowerLast = user.name.last.toLowerCase();
                 let lowerSearch = search.toLowerCase();
-                return (lowerFirst.includes(lowerSearch) || lowerLast.includes(lowerSearch)) });
+                let lowerEmail = user.email.toLowerCase();
+                let nameHit = (lowerFirst.includes(lowerSearch) || lowerLast.includes(lowerSearch));
+                let emailHit = lowerEmail.includes(lowerSearch);
+                let phoneHit = user.phone.includes(lowerSearch);
+                return (nameHit || emailHit || phoneHit )});
         }
         else {
             filUsers = users;
@@ -39,7 +43,7 @@ export default function Employees() {
                 </div>
                 <div className="col-lg-4 col-md-6 col-sm-12">
                     <div className="input-group my-3">
-                        <input type="text" className="form-control" placeholder="Search By Employee Name" id="searchText" onChange={e => setSearch(e.target.value)} />
+                        <input type="text" className="form-control" placeholder="Search Employees" id="searchText" onChange={e => setSearch(e.target.value)} />
                         <div className="input-group-append">
                             <button className="btn btn-primary" type="button" id="searchBtn"><i
                                 className="fa fa-search"></i></button>
