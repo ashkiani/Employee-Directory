@@ -10,14 +10,17 @@ export default function Employees() {
     useEffect(() => {
         let filUsers = [];
         if (search !== "") {
-            filUsers = users.filter(user => { return (user.name.first.includes(search) || user.name.last.includes(search)) });
-            
+            filUsers = users.filter(user => { 
+                let lowerFirst = user.name.first.toLowerCase();
+                let lowerLast = user.name.last.toLowerCase();
+                let lowerSearch = search.toLowerCase();
+                return (lowerFirst.includes(lowerSearch) || lowerLast.includes(lowerSearch)) });
         }
         else {
             filUsers = users;
         }
         setFilteredUsers(filUsers);
-    }, [search,users]);
+    }, [search, users]);
 
     useEffect(() => {
         API.getUsers()
@@ -36,7 +39,7 @@ export default function Employees() {
                 </div>
                 <div className="col-lg-4 col-md-6 col-sm-12">
                     <div className="input-group my-3">
-                        <input type="text" className="form-control" placeholder="Search By Employee Name" id="searchText" onChange={e=>setSearch(e.target.value)} />
+                        <input type="text" className="form-control" placeholder="Search By Employee Name" id="searchText" onChange={e => setSearch(e.target.value)} />
                         <div className="input-group-append">
                             <button className="btn btn-primary" type="button" id="searchBtn"><i
                                 className="fa fa-search"></i></button>
