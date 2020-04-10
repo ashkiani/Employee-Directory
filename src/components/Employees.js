@@ -20,7 +20,7 @@ export default function Employees() {
         console.log("useEffect for search, users, sort")
         let filUsers = [];
         if (search !== "") {
-            filUsers = users.filter(user => {
+            filUsers = users.users.filter(user => {
                 let lowerFirst = user.name.first.toLowerCase();
                 let lowerLast = user.name.last.toLowerCase();
                 let lowerSearch = search.toLowerCase();
@@ -32,7 +32,7 @@ export default function Employees() {
             });
         }
         else {
-            filUsers = users.users;
+                        filUsers = users.users;
         }
 
         if (users.sort) {
@@ -42,7 +42,7 @@ export default function Employees() {
     }, [search, users]);
 
     function sort(e, order) {
-        setUsers({ users: filteredUsers.users, sort: order })
+        setUsers({ users: users.users, sort: order })
     }
     return (
         <>
