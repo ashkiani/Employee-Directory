@@ -35,8 +35,8 @@ export default function Employees() {
             filUsers = users.users;
         }
 
-        if (users.sort){
-            filUsers.sort((a, b) => (a.name.first > b.name.first) ? users.sort : (a.name.first === b.name.first) ? ((a.name.last > b.name.last) ? users.sort : (-1*users.sort)) : (-1*users.sort))
+        if (users.sort) {
+            filUsers.sort((a, b) => (a.name.last > b.name.last) ? users.sort : (a.name.last === b.name.last) ? ((a.name.first > b.name.first) ? users.sort : (-1 * users.sort)) : (-1 * users.sort))
         }
         setFilteredUsers({ users: filUsers, sort: users.sort });
     }, [search, users]);
@@ -67,7 +67,7 @@ export default function Employees() {
                 <div >Sort Names</div>
                 <div className="btn-group btn-group-toggle ml-3 mb-3" data-toggle="buttons">
                     <label className="btn btn-primary">
-                        <input type="radio" name="options" id="option2" onClick={e => sort(e, 1)} checked={filteredUsers.sort === 1} onChange={e=>console.log("dummy onChange event handler to suppress the react warning.")} /><i className="fas fa-sort-alpha-down"></i>
+                        <input type="radio" name="options" id="option2" onClick={e => sort(e, 1)} checked={filteredUsers.sort === 1} onChange={e => console.log("dummy onChange event handler to suppress the react warning.")} /><i className="fas fa-sort-alpha-down"></i>
                     </label>
                     <label className="btn btn-primary">
                         <input type="radio" name="options" id="option3" onClick={e => sort(e, -1)} /><i className='fas fa-sort-alpha-up-alt'></i>
@@ -79,8 +79,8 @@ export default function Employees() {
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Image</th>
-                        <th scope="col">First</th>
                         <th scope="col">Last</th>
+                        <th scope="col">First</th>
                         <th scope="col">Email</th>
                         <th scope="col">Phone</th>
                     </tr>

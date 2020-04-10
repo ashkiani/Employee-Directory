@@ -7,8 +7,8 @@ export default function Employee(props) {
         <tr>
             <th scope="row">{index + 1}</th>
             <td><img src={picture.thumbnail} alt="Smiley face" height="42" width="42"></img></td>
-            <td>{name.first}</td>
             <td>{name.last}</td>
+            <td>{name.first}</td>
             <td>{email}</td>
             <td>{phone}</td>
         </tr>
